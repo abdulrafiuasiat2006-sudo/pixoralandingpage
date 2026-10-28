@@ -1,0 +1,7 @@
+{
+  "name": "PIXORA — Essential Image Tools",
+  "description": "Your images. Every format. One place. Split, compress, resize, and crop images with PIXORA. Four essential image tools in one simple workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
