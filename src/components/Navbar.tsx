@@ -77,58 +77,23 @@ export const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
           </nav>
 
           {/* Zone 3: Actions */}
-          <div className="hidden md:flex items-center gap-4 shrink-0">
-            {user ? (
-              <div className="flex items-center gap-3">
-                <span className="text-xs text-[#1A1A1A]/70 font-medium flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-[#FF7A1A]" />
-                  {user.name}
-                </span>
-                <Link
-                  to="/app"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#FF7A1A] rounded-md hover:bg-[#e66c14] transition-colors whitespace-nowrap shadow-sm"
-                >
-                  Workspace
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <button
-                  onClick={onLogout}
-                  className="text-xs text-[#1A1A1A]/60 hover:text-[#1A1A1A] transition-colors font-medium px-2 py-1 cursor-pointer"
-                >
-                  Log out
-                </button>
-              </div>
-            ) : (
-              <>
-                <Link
-                  to="/login"
-                  className={`px-3.5 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
-                    location.pathname === '/login'
-                      ? 'text-[#FF7A1A] font-semibold'
-                      : 'text-[#1A1A1A] hover:text-[#FF7A1A]'
-                  }`}
-                >
-                  Log In
-                </Link>
-                <Link
-                  to="/app"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#FF7A1A] rounded-md hover:bg-[#e66c14] transition-colors whitespace-nowrap shadow-sm hover:shadow"
-                >
-                  Get Started
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </>
-            )}
-          </div>
+          {user && (
+            <div className="hidden md:flex items-center gap-3 shrink-0">
+              <span className="text-xs text-[#1A1A1A]/70 font-medium flex items-center gap-1.5">
+                <User className="w-3.5 h-3.5 text-[#FF7A1A]" />
+                {user.name}
+              </span>
+              <button
+                onClick={onLogout}
+                className="text-xs text-[#1A1A1A]/60 hover:text-[#1A1A1A] transition-colors font-medium px-2 py-1 cursor-pointer"
+              >
+                Log out
+              </button>
+            </div>
+          )}
 
           {/* Mobile menu trigger */}
-          <div className="flex md:hidden items-center gap-3">
-            <Link
-              to="/app"
-              className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white bg-[#FF7A1A] rounded-md"
-            >
-              Start
-            </Link>
+          <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[#1A1A1A] hover:text-[#FF7A1A] transition-colors cursor-pointer"
